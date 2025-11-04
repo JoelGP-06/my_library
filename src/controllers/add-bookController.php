@@ -1,0 +1,2 @@
+<?php
+view("add-book");

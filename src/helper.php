@@ -19,16 +19,20 @@ function router(array $routes): string
     $path = $parsedUrl['path'] ?? '/';
     $route = trim($path, '/');
 
-    // Ruta por defecto si no detecta el localhost base como página incorrecta ya que no está en el array
     if ($route === '') {
         $route = 'home';
     }
     if (!in_array($route, $routes)) {
-        echo "<h1>Error 404: Page not found</h1>";
+        header('location:/404');
         exit;
     }
     return $route;
 }
 
 
-function view() {}
+function view(string $view, ?array $data=null) {
+    if ($data){
+        extract($data,EXTR_OVERWRITE);
+    }
+    require VIEWS."/$view.view.php";
+}

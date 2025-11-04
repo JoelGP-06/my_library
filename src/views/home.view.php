@@ -1,12 +1,16 @@
 <?php include 'src/views/partials/header.view.php'; ?>
-    <main class="p-4">
-        <h2 class="text-xl mb-4">Welcome to My Library</h2>
-        <?php foreach($books as $book): ?>
-        <hr>
-            <div class="bg-gray-700 p-4 rounded mb-4 hover:bg-gray-900 transition duration-300">
-                <h3 class="text-lg font-bold"><?=$book['title']; ?></h3>
-                <p class="text-sm">by <?=$book['author']; ?> (<?=$book['year']; ?>)</p>
-            </div>
-        <?php endforeach; ?>
-    </main>
+<main class="min-h-screen bg-black text-gray-200 flex flex-col items-center justify-center p-6">
+    <h2 class="text-3xl font-bold text-indigo-400 mb-6">Welcome to My Library</h2>
+    
+    <div class="flex gap-4">
+        <a href="/login"
+           class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg shadow font-medium">
+           Login
+        </a>
+        <a href="/register"
+           class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg shadow font-medium">
+           Registrarse
+        </a>
+    </div>
+</main>
 <?php include 'src/views/partials/footer.view.php'; ?>
