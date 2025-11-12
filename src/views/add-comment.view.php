@@ -1,4 +1,9 @@
 <?php include 'src/views/partials/header.view.php'; ?>
+<?php if (!isset($_SESSION['user'])) {
+    header('Location: /login');
+    exit();
+}
+?>
 <main class="flex h-screen bg-black text-gray-200 items-center justify-center p-6">
     <div class="w-full max-w-md bg-gray-900 rounded-2xl shadow-lg p-8 border border-gray-800">
         <h2 class="text-2xl font-semibold mb-6 text-center text-indigo-400">Añadir Comentario al libro #<?= $book['id']?></h2>

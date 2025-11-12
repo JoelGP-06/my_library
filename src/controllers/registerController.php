@@ -9,7 +9,7 @@ $password = filter_input(INPUT_POST, 'password');
 if ($email && $password) {
     // Verificamos si ya existe el usuario
     if (userExists($db, $email)) {
-        echo "<p style='color:red;text-align:center;'>❌ El usuario ya está registrado.</p>";
+        echo "<p style='color:red;text-align:center; margin-top: -300px;'>❌ El usuario ya está registrado.</p>";
     } else {
         // Encriptar contraseña
         $pass_enc = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
@@ -21,10 +21,10 @@ if ($email && $password) {
         ];
 
         if (insert($db, 'users', $user)) {
-            echo "<p style='color:lightgreen;text-align:center;'>Te has registrado correctamente</p>";
+            echo "<p style='color:lightgreen;text-align:center; margin-top: -300px;'>Te has registrado correctamente</p>";
             header("Location: /login");
                 } else {
-            echo "<p style='color:red;text-align:center;'>Error al registrar el usuario</p>";
+            echo "<p style='color:red;text-align:center;argin-top: -300px;'>Error al registrar el usuario</p>";
         }
     }
 }

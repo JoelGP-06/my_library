@@ -1,7 +1,12 @@
 <?php include 'src/views/partials/header.view.php'; ?>
+<?php if (!isset($_SESSION['user'])) {
+    header('Location: /login');
+    exit();
+}
+?>
 <main class="min-h-screen bg-black text-gray-200 p-6">
-    <h1 class="text-3xl font-bold text-center text-indigo-400 mb-6">Lista de Libros</h1>
-    <div class="overflow-x-auto">
+    <h1 class="text-3xl font-bold text-center text-indigo-400 mb-16 mt-10">Lista de Libros</h1>
+    <!--<div class="overflow-x-auto">
         <table class="w-full max-w-4xl mx-auto border border-gray-700 rounded-lg bg-gray-900 shadow-lg">
             <thead>
                 <tr class="bg-gray-800">
@@ -18,9 +23,6 @@
                     <td class="px-4 py-3"><?= $book['title'] ?></td>
                     <td class="px-4 py-3"><?= $book['author'] ?></td>
                     <td class="px-4 py-3"><?= $book['publish_date'] ?></td>
-                    <!--<td class="px-4 py-3">
-                        <a href="/add-comment?id=<?= $book['id'] ?>" class="text-indigo-400 hover:text-indigo-300 font-medium">Añadir comentario</a>
-                    </td>-->
                     <td class="px-4 py-3">
                         <a href="/edit-book?id=<?= $book['id'] ?>" class="text-indigo-400 hover:text-indigo-300 font-medium">Editar</a>
                     </td>
@@ -33,40 +35,27 @@
                 </tr>
             <?php endforeach ?>
         </table>
-    </div>
-    <!--hacer prueba de convertir la tabla a tarjetas -->
-    <div class="overflow-x-auto">
-        <table class="w-full max-w-4xl mx-auto border border-gray-700 rounded-lg bg-gray-900 shadow-lg">
-            <thead>
-                <tr class="bg-gray-800">
-                    <th class="px-4 py-3 text-left">Título</th>
-                    <th class="px-4 py-3 text-left">Autor</th>
-                    <th class="px-4 py-3 text-left">Fecha de Publicación</th>
-                    <th class="px-4 py-3 text-left">Editar</th>
-                    <th class="px-4 py-3 text-left">Eliminar</th>
-                    <th class="px-4 py-3 text-left">Ver</th>
-                </tr>
-            </thead>
-            <?php foreach ($books as $book): ?>
-                <tr class="border-b border-gray-700 hover:bg-gray-800 transition">
-                    <td class="px-4 py-3"><?= $book['title'] ?></td>
-                    <td class="px-4 py-3"><?= $book['author'] ?></td>
-                    <td class="px-4 py-3"><?= $book['publish_date'] ?></td>
-                    <!--<td class="px-4 py-3">
-                        <a href="/add-comment?id=<?= $book['id'] ?>" class="text-indigo-400 hover:text-indigo-300 font-medium">Añadir comentario</a>
-                    </td>-->
-                    <td class="px-4 py-3">
-                        <a href="/edit-book?id=<?= $book['id'] ?>" class="text-indigo-400 hover:text-indigo-300 font-medium">Editar</a>
-                    </td>
-                    <td class="px-4 py-3">
-                        <a href="/delete-book?id=<?= $book['id'] ?>" class="text-red-400 hover:text-red-700 font-medium">Eliminar</a>
-                    </td>
-                    <td class="px-4 py-3">
-                        <a href="/full-book?id=<?= $book['id'] ?>" class="text-emerald-400 hover:text-emerald-700 font-medium">Ver</a>
-                    </td>
-                </tr>
-            <?php endforeach ?>
-        </table>
+    </div> -->
+    <!-- Mostrar los libros como tarjetas -->
+    <div class="space-y-6 max-w-3xl mx-auto">
+        <?php foreach ($books as $book): ?>
+            <div class="bg-gray-900 border border-gray-800 rounded-2xl shadow-lg p-6 hover:bg-gray-800 transition">
+                <h3 class="text-2xl font-semibold text-indigo-400 mb-2"><?= htmlspecialchars($book['title']) ?></h3>
+                <p class="text-gray-300 mb-1"><span class="font-medium text-gray-400">Autor:</span> <?= htmlspecialchars($book['author']) ?></p>
+                <p class="text-gray-300 mb-4"><span class="font-medium text-gray-400">Publicado:</span> <?= htmlspecialchars($book['publish_date']) ?></p>
+
+                <div class="flex flex-wrap gap-4 mt-3">
+                    <a href="/edit-book?id=<?= $book['id'] ?>"
+                        class="text-indigo-400 hover:text-indigo-300 font-medium transition">Editar</a>
+
+                    <a href="/delete-book?id=<?= $book['id'] ?>"
+                        class="text-red-400 hover:text-red-500 font-medium transition">Eliminar</a>
+
+                    <a href="/full-book?id=<?= $book['id'] ?>"
+                        class="text-emerald-400 hover:text-emerald-300 font-medium transition">Ver</a>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 
     <p class="text-center mt-8">

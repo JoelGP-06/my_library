@@ -1,4 +1,9 @@
 <?php include 'src/views/partials/header.view.php'; ?>
+<?php if (!isset($_SESSION['user'])) {
+    header('Location: /login');
+    exit();
+}
+?>
 <main class="flex h-screen bg-black text-gray-200 items-center justify-center p-6">
     <div class="w-full max-w-md">
         <h4 class="text-xl font-semibold text-indigo-400 mb-4">Edit book #<?= $book["id"]?></h4>
