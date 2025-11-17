@@ -6,18 +6,18 @@
 ?>
 <main class="flex h-screen bg-black text-gray-200 items-center justify-center p-6">
     <div class="w-full max-w-md">
-        <h4 class="text-xl font-semibold text-indigo-400 mb-4">Are you sure you want to delete book #<?= $book["id"]?></h4>
+        <h4 class="text-xl font-semibold text-indigo-400 mb-4">¿Seguro que quieres eliminar definitivamente el libro con el id #<?= $book["id"]?>?</h4>
         <div class="p-6 border border-gray-700 bg-gray-900 rounded-lg shadow-lg">
             <form action="/eliminate" method="POST" class="flex flex-col gap-4">
                 <input type="hidden" name="id" value="<?= $book['id'] ?>">
-                <p class="mb-4">Title: <?= $book['title'] ?></p>
-                <p class="mb-4">Author: <?= $book['author'] ?></p>
-                <p class="mb-4">Publication Date: <?= $book['publish_date'] ?></p>
+                <p class="mb-4">Titulo: <?= $book['title'] ?></p>
+                <p class="mb-4">Autor: <?= $book['author'] ?></p>
+                <p class="mb-4">Fecha de Publicación: <?= $book['publish_date'] ?></p>
                 <div class="flex gap-4">
-                    <input type="submit" value="Delete"
+                    <input type="submit" value="Eliminar"
                            class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg shadow font-medium cursor-pointer">
                     <a href="/books"
-                       class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg shadow font-medium text-center">Cancel</a>
+                       class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg shadow font-medium text-center">Cancelar</a>
                 </div>
             </form>
         </div>

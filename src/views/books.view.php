@@ -6,7 +6,7 @@
 ?>
 <main class="min-h-screen bg-black text-gray-200 p-6">
     <h1 class="text-3xl font-bold text-center text-indigo-400 mb-16 mt-10">Lista de Libros</h1>
-    +    <!-- Mostrar los libros como tarjetas -->
+    <!-- Mostrar los libros como tarjetas -->
     <div class="space-y-6 max-w-3xl mx-auto">
         <?php foreach ($books as $book): ?>
             <div class="bg-gray-900 border border-gray-800 rounded-2xl shadow-lg p-6 hover:bg-gray-800 transition">

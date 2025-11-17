@@ -7,12 +7,13 @@
 <main class="min-h-screen bg-gradient-to-b from-gray-950 to-gray-900 text-gray-200 flex flex-col items-center p-8"> <!-- Sección del libro -->
     <section class="w-full max-w-3xl bg-gray-900/70 border border-gray-800 rounded-2xl shadow-lg p-8 backdrop-blur-sm">
         <div class="space-y-4 text-lg">
-            <div class="flex justify-between border-b border-gray-800 pb-2"> <span class="text-indigo-400 font-semibold">ID:</span> <span><?= htmlspecialchars($book["id"]) ?></span> </div>
-            <div class="flex justify-between border-b border-gray-800 pb-2"> <span class="text-indigo-400 font-semibold">Título:</span> <span><?= htmlspecialchars($book["title"]) ?></span> </div>
-            <div class="flex justify-between border-b border-gray-800 pb-2"> <span class="text-indigo-400 font-semibold">Autor:</span> <span><?= htmlspecialchars($book["author"]) ?></span> </div>
-            <div class="flex justify-between border-b border-gray-800 pb-2"> <span class="text-indigo-400 font-semibold">Publicado:</span> <span><?= htmlspecialchars($book["publish_date"]) ?></span> </div>
+            <div class="flex justify-between border-b border-gray-800 pb-2"> <span class="text-indigo-400 font-semibold">ID: </span> <span><?= htmlspecialchars($book["id"]) ?></span> </div>
+            <div class="flex justify-between border-b border-gray-800 pb-2"> <span class="text-indigo-400 font-semibold">Título: </span> <span><?= htmlspecialchars($book["title"]) ?></span> </div>
+            <div class="flex justify-between border-b border-gray-800 pb-2"> <span class="text-indigo-400 font-semibold">Autor: </span> <span><?= htmlspecialchars($book["author"]) ?></span> </div>
+            <div class="flex justify-between border-b border-gray-800 pb-2"> <span class="text-indigo-400 font-semibold">Publicado: </span> <span><?= htmlspecialchars($book["publish_date"]) ?></span> </div>
         </div>
-    </section> <!-- Sección de comentarios -->
+    </section> 
+    <!-- Sección de comentarios -->
     <section class="w-full max-w-3xl mt-10 bg-gray-900/70 border border-gray-800 rounded-2xl shadow-lg p-8 backdrop-blur-sm">
         <h2 class="text-2xl font-semibold text-indigo-400 mb-4">💬 Comentarios</h2>
         <?php
@@ -34,8 +35,8 @@
                 <?php foreach ($comments as $comment): ?>
                     <li class="border-b border-gray-800 pb-4">
                         <div class="flex items-center mb-2">
-                            <p class="text-gray-400"><?= htmlspecialchars($comment["user_email"]) ?> dice: </p>
-                            <p class="text-gray-400"><?= htmlspecialchars($comment["description"]) ?></p>
+                            <p class="text-gray-400"><?= htmlspecialchars($comment["user_email"]) ?> dice: &nbsp;</p>
+                            <p class="text-gray-400"><?= htmlspecialchars($comment["description"]) ?>&nbsp;</p>
                             <div class="flex items-center space-x-1">
                                 <span class="text-sm text-indigo-400 font-semibold"> <?= htmlspecialchars($comment["rating"]) ?>/5 </span>
                                 <span class="text-yellow-400"> <?= str_repeat("★", (int)$comment["rating"]) ?> <?= str_repeat("☆", 5 - (int)$comment["rating"]) ?> </span>
